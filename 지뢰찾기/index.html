@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지뢰찾기</title>
+    <link rel="stylesheet" href="public/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&family=Phudu:wght@800&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="public/images/지뢰찾기깃발.png">
+</head>
+
+<body>
+    <header>
+        <div class="title"><h3> 지&nbsp;&nbsp;뢰&nbsp;&nbsp;찾&nbsp;&nbsp;기 </h3></div>
+    </header>
+
+    <div class="bodywrap">
+        <div id="gameBoard">
+            <p class="content">
+                Game Setting
+            </p>
+            <div class="btns">
+                <input type="number" id="row" placeholder="가로입력 : 10">
+                <input type="number" id="col" placeholder="세로입력 : 10">
+                <input type="number" id="tnt" placeholder="지뢰개수 : 10">
+                <button id="startBtn">시작</button>
+            </div>
+        </div>
+        
+        <script src="public/program.js"></script>
+    </div>
+
+    <footer>
+        <div class="btndiv">
+            <a href="../AllContents.html"><button id="home">홈으로</button></a>
+            <button id="restart" onclick="restart()">다시시작</button>
+        </div>
+    </footer>
+</body>
+
+</html>
