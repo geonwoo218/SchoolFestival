@@ -35,8 +35,9 @@ header{
     width: 200px;
     height: 200px;
     float: left;
-    background-color: rgb(106, 165, 154);
+    background-color: rgb(255, 255, 255);
     position: absolute;
+    border-radius: 20px;
 }
 .game img{
     width: 200px;
@@ -45,6 +46,10 @@ header{
 .game img:hover{
     opacity: 0.5;
     cursor: pointer;
+}
+.game span{
+    text-align: center;
+    font-weight: bold;
 }
 #game1{
     top: 100px;
