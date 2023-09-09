@@ -133,21 +133,33 @@ header span {
     position: fixed;
     width: 100%;
     display: none;
-    line-height: 220px;
-    font-size: 200px;
-    height: 450px;
     background-color: black;
-    font-weight: 900;
-    color: yellow;
     border-top: 10px solid red;
-    border-bottom: 10px solid red;
-    -webkit-text-stroke: 2px red;
+    border-bottom: 10px solid red;   
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Aldrich', sans-serif;
 }
-
+.gameOverBody{
+    width: 100%;
+    height: 450px;
+    line-height: 220px;
+    font-size: 200px;
+    font-weight: 900;
+    color: yellow;
+    -webkit-text-stroke: 2px red;
+}
+.close{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    text-align: center;
+}
 #numList div {
     border-radius: 30px;
 }

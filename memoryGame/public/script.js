@@ -2,6 +2,7 @@ const numContainer = document.getElementById('numList');
 const stdBtn = document.getElementById('startBtn');
 const gameOverMessage = document.getElementById('gameOver');
 const restartBtn = document.getElementById('restart');
+const gameOverSound = document.getElementById('gameOverSound');
 
 stdBtn.addEventListener('click', startGame);
 numContainer.addEventListener('click', clickNumber);
@@ -122,13 +123,26 @@ function clickNumber(event) {
         // 순서가 틀린 경우
         event.target.style.backgroundColor = 'red'; // 틀린 경우 배경색 변경
         event.target.style.color = "white";
-        gameOverMessage.innerText = 'GAME\nOVER';
+        //gameOverMessage.innerText = 'GAME\nOVER';
         gameOverMessage.style.display = 'block';
+        gameOverSound.play();
         numContainer.style.pointerEvents = 'none'; // 클릭 비활성화
         gameOver = true;
     }
 }
+function endGame(){
+    gameOverMessage.style.display ='none';
+    // 모든 숫자 박스
+    var numBoxes = document.querySelectorAll('#numList div');
 
+    // 클릭되지 않은 숫자들에 대해 반복합니다.
+    numBoxes.forEach((numBox) => {
+        if (numBox.style.backgroundColor !== 'green') {
+            numBox.style.backgroundColor = 'red'; // 클릭되지 않은 숫자의 배경색을 변경
+            numBox.style.color = 'white';
+        }
+    });
+}
 function nextGame() {
     // 게임 초기화
     currentNumber = 1;

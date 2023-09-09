@@ -21,7 +21,11 @@
     <div id="gameBoard">
         <div id="numList"></div>
         <button id="startBtn"><span>GAME START</span></button>
-        <div id="gameOver">GAME OVER</div>
+        <div id="gameOver">
+            <div class="gameOverBody"> GAME <br>OVER</div>
+            <div class="close" onclick="endGame()">close</div>
+        </div>
+        <audio id="gameOverSound" src="public/gameOverSound.wav"></audio>
     </div>
     <footer>
         <div id="howToPlayBg">
