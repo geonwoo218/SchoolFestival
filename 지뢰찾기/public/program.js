@@ -1,22 +1,22 @@
-//참고 : https://github.com/1K3H/minesweeper/blob/main/program.js
+
 const startBtn = document.getElementById("startBtn");
 startBtn.addEventListener("click", setting);
 const COLOR = ["blue", "rgb(0,204,0)", "red", "purple", "orange", "olive", "brown", "black"];
 const tdArr = document.getElementsByTagName('td'); //테이블범위
-let row;
-let col;
+
+
+let row = 10;
+let col = 10;
 
 window.addEventListener("contextmenu", (e) => e.preventDefault());//우클릭메뉴제거
 
 function setting() {
-    
-    row = parseInt(document.getElementById("row").value);
-    col = parseInt(document.getElementById("col").value);
+
     const tnt = parseInt(document.getElementById("tnt").value);
-    if (row == 0 || col == 0 || tnt == 0) {
-        alert("0이 말이 됩니까 그럴꺼면 가세요 '^' ");
+    if (tnt == 0 || isNaN(tnt)) {
+        alert("올바른 수를 입력해주세요 '^' ");
         restart();
-    } else if (row < 0 || col < 0 || tnt < 0) {
+    } else if (tnt < 0) {
         alert("음수는 좀 아니잖아요 ^_^");
         restart();
     } else if (tnt >= row * col) {
@@ -99,8 +99,8 @@ function clickTile(targetNum, aroundArr) {
     const isMine = tile.classList.contains("mine");
 
     if (isMine) {
-        alert("GAME OVER!!!");
         // 게임 오버 처리
+        gameOver();
     } else if (!isOpen && !isFlag && !isQMark && !isMine) {
         let mineCount = 0;
         for (let i = 0; i < aroundArr.length; i++) {
@@ -152,7 +152,7 @@ function tileEvent(targetNum, aroundArr) {
     tile.addEventListener("contextmenu", function (e) {
         e.preventDefault(); // 우클릭 설정창 표시 안되게
         if (e.button === 2) {
-            if (!isOpen && !isFlag && !isQMark && !isNumberTile) { // 추가 조건: !isNumberTile
+            if (!isOpen && !isFlag && !isQMark && !isNumberTile) { 
                 if (rightClickState === 0) {
                     rightClickState = 1;
                     tile.classList.add("flag");
@@ -173,6 +173,14 @@ function tileEvent(targetNum, aroundArr) {
     });
 }
 
+//게임 종료 처리
+
+const gameWinMessage = document.getElementById('WinMsg');
+const WinEndBg = document.getElementById('WinEndBg');
+const gameOverMessage = document.getElementById('OverMsg');
+const OverEndBg = document.getElementById('OverEndBg');
+const gameOverSound = document.getElementById("gameOverSound");
+
 function checkWinCondition() { // 승리
     const mineTiles = document.querySelectorAll('.mine'); // 지뢰 타일 위치
     const flaggedTiles = document.querySelectorAll('.mine.flag'); // 깃발 위치
@@ -180,43 +188,29 @@ function checkWinCondition() { // 승리
     const qMark = document.querySelectorAll('.qMark');
 
     if (mineTiles.length === flaggedTiles.length && mineTiles.length === flagCnt.length && qMark.length === 0) {
-        alert("게임 승리 ^_^ \n 멋진걸~ '^'");
+        gameWinMessage.style.display = "block";
+        WinEndBg.style.display = "block";
     }
+}
+
+function gameOver(){
+
+    for (let i = 0; i < tdArr.length; i++) { // 모든 지뢰에 클래스 추가
+        if (tdArr[i].classList.contains('mine')) {
+            tdArr[i].classList.add('gameOverMine');
+        }
+    }
+    gameOverMessage.style.display = "block";
+    OverEndBg.style.display = "block";
+    gameOverSound.play();
+}
+
+function MsgClose(){
+    gameWinMessage.style.display = "none";
+    gameOverMessage.style.display = "none";
 }
 
 function restart() { //나가기
     window.location.reload();
 }
 
-
-/*
-function restartBtnCss(btn) {
-    btn.style.display = "block";
-    btn.style.position = "relative";
-    btn.style.width = "120px";
-    btn.style.height = "50px";
-    btn.style.padding = "0px";
-    btn.style.fontWeight = "600";
-    btn.style.textAlign = "center";
-    btn.style.lineHeight = "50px";
-    btn.style.color = "#000";
-    btn.style.borderRadius = "5px";
-    btn.style.transition = "all 0.3s";
-    btn.style.backgroundColor = "rgb(237, 237, 207)";
-    btn.style.border = "0px";
-    btn.style.cursor = "pointer";
-    btn.style.boxShadow = "0px 5px 0px 0px #c9b687";
-
-    btn.addEventListener('mouseenter', function () {
-        btn.style.marginTop = '5px';
-        btn.style.marginBottom = '5px';
-        btn.style.boxShadow = '0px 0px 0px 0px rgb(237, 237, 207)';
-    });
-
-    // 마우스가 요소를 떠날 때
-    btn.addEventListener('mouseleave', function () {
-        btn.style.marginTop = '0px'; // 원래 값으로 변경
-        btn.style.marginBottom = '0px'; // 원래 값으로 변경
-        btn.style.boxShadow = "0px 5px 0px 0px #c9b687";
-    });
-}*/

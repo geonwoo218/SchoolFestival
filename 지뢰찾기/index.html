@@ -4,17 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../checkSpeedRun/public/code.jquery.com_jquery-3.7.1.min.js"></script>
     <title>지뢰찾기</title>
     <link rel="stylesheet" href="public/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&family=Phudu:wght@800&display=swap" rel="stylesheet">
-<link rel="shortcut icon" type="image/x-icon" href="public/images/지뢰찾기깃발.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&family=Phudu:wght@800&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="public/images/지뢰찾기깃발.png">
 </head>
 
 <body>
     <header>
-        <div class="title"><h3> 지&nbsp;&nbsp;뢰&nbsp;&nbsp;찾&nbsp;&nbsp;기 </h3></div>
+        <div class="title">
+            <h3> 지&nbsp;&nbsp;뢰&nbsp;&nbsp;찾&nbsp;&nbsp;기 </h3>
+        </div>
     </header>
 
     <div class="bodywrap">
@@ -23,14 +27,24 @@
                 Game Setting
             </p>
             <div class="btns">
-                <input type="number" id="row" placeholder="가로입력 : 10">
-                <input type="number" id="col" placeholder="세로입력 : 10">
-                <input type="number" id="tnt" placeholder="지뢰개수 : 10">
+                <input type="number" id="tnt" placeholder="지뢰개수를 입력">
                 <button id="startBtn">시작</button>
             </div>
         </div>
-        
-        <script src="public/program.js"></script>
+        <div id="WinEndBg">
+            <div id="WinMsg">
+                <div class="MsgBody">지뢰를 모두 찾았습니다~</div>
+                <div class="MsgClose" onclick="MsgClose()">닫기</div>
+            </div>
+        </div>
+        <div id="OverEndBg">
+            <div id="OverMsg">
+                <div class="MsgBody">펑!! 지뢰가 터졌어요..</div>
+                <div class="MsgClose" onclick="MsgClose()">닫기</div>
+            </div>
+            <audio id="gameOverSound" src="public/gameOverSound.mp3"></audio>
+            <script src="public/program.js"></script>
+        </div>
     </div>
 
     <footer>
