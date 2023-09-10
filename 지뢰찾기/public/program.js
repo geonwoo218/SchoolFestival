@@ -180,6 +180,7 @@ const WinEndBg = document.getElementById('WinEndBg');
 const gameOverMessage = document.getElementById('OverMsg');
 const OverEndBg = document.getElementById('OverEndBg');
 const gameOverSound = document.getElementById("gameOverSound");
+const victorySound = document.getElementById('victorySound');
 
 function checkWinCondition() { // 승리
     const mineTiles = document.querySelectorAll('.mine'); // 지뢰 타일 위치
@@ -190,6 +191,7 @@ function checkWinCondition() { // 승리
     if (mineTiles.length === flaggedTiles.length && mineTiles.length === flagCnt.length && qMark.length === 0) {
         gameWinMessage.style.display = "block";
         WinEndBg.style.display = "block";
+        victorySound.play();
     }
 }
 

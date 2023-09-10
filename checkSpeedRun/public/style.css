@@ -14,7 +14,8 @@ body {
     justify-content: center; /* 수평 가운데 정렬 */
     height: 75vh;
     margin: 0; /* body의 기본 마진 제거 */
-    background-color: rgb(0, 53, 139);
+    background: rgb(88,109,215);
+background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(41,0,75,1) 100%);
 }
 
 #title {
