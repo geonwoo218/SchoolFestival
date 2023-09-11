@@ -32,7 +32,10 @@ header{
     justify-content: center;
     margin-top: 150px;
 }
-
+.container span{
+    color: white;
+    text-align: center;
+}
 .boxodd {
     width: 200px;
     height: 200px;
@@ -61,13 +64,16 @@ header{
     margin: 10px;
     text-align: center;
     font-size: 18px;
+    width: 200px;
+    height: 200px;
 }
 .box img{
     width: 200px;
     height: 200px;
+    transition: .3s;
 }
 .box img:hover{
-    opacity: 0.5;
+    transform: scale(1.2);
     cursor: pointer;
 }
 
