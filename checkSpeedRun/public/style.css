@@ -12,10 +12,10 @@ body {
     flex-direction: column;
     align-items: center; /* 수직 가운데 정렬 */
     justify-content: center; /* 수평 가운데 정렬 */
-    height: 75vh;
+    height: 100%;
     margin: 0; /* body의 기본 마진 제거 */
     background: rgb(88,109,215);
-background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(41,0,75,1) 100%);
+    background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(41,0,75,1) 100%);
 }
 
 #title {
@@ -38,14 +38,37 @@ background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(41,0,75,1) 100%)
     background-image: linear-gradient(to left, #00b0ff 0%, #00e676 100%);
 }
 
-ul#leaderboard {
+#leaderboard_wrapper::-webkit-scrollbar{
+    width: 10px;
+}
+#leaderboard_wrapper::-webkit-scrollbar-thumb{
+    background-color: #4c6be8;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+}
+#leaderboard_wrapper::-webkit-scrollbar-track{
+    background-color: rgb(69, 62, 113,0.3);
+    border-radius: 10px;
+}
+
+#leaderboard_wrapper {
+    width: auto;
+    min-height: 450px;
+    max-height: 450px;
+    overflow-y: scroll;
+}
+
+#leaderboard {
     list-style-type: none;
     padding: 0;
     margin: 0;
     font-size: 20px;
     text-align: center;
-    width: 100%;
+    width: auto;
+    height: auto;
     color: white;
+    padding: 0 20px;
+    margin-top: 10px;
 }
 
 ul#leaderboard li {

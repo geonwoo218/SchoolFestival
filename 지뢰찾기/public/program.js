@@ -134,11 +134,6 @@ function clickTile(targetNum, aroundArr) {
 
 function tileEvent(targetNum, aroundArr) {
     const tile = tdArr[targetNum];
-    const isOpen = tile.dataset.isOpen === "true"; // 이미 열려있는 타일인지 확인
-    const isFlag = tile.classList.contains("flag"); // 깃발
-    const isQMark = tile.classList.contains("qmark"); // 물음표
-    const isMine = tile.classList.contains("mine");
-    const isNumberTile = tile.innerText.trim() !== "" && !isNaN(parseInt(tile.innerText)); // 숫자가 표시된 타일인지 확인
     let rightClickState = 0; // 0: 아무것도 없음, 1: 깃발, 2: 물음표
 
     tile.addEventListener("click", function (e) {
@@ -150,6 +145,12 @@ function tileEvent(targetNum, aroundArr) {
 
 
     tile.addEventListener("contextmenu", function (e) {
+        const isOpen = tile.dataset.isOpen === "true"; // 이미 열려있는 타일인지 확인
+        const isFlag = tile.classList.contains("flag"); // 깃발
+        const isQMark = tile.classList.contains("qmark"); // 물음표
+        const isMine = tile.classList.contains("mine");
+        const isNumberTile = tile.innerText.trim() !== "" && !isNaN(parseInt(tile.innerText)); // 숫자가 표시된 타일인지 확인
+
         e.preventDefault(); // 우클릭 설정창 표시 안되게
         if (e.button === 2) {
             if (!isOpen && !isFlag && !isQMark && !isNumberTile) { 

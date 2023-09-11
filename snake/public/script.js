@@ -17,6 +17,8 @@ window.onload = function(){
     displayLeaderboard();
 }
 
+
+
 function createGrid() {
     var tbody = document.createElement('tbody');
     for (var i = 0; i < rows; i++) {

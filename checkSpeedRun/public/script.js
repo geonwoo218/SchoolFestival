@@ -16,13 +16,15 @@ function startGame(){
     var startButton = document.getElementById("startbutton");
     var title = document.getElementById("title");
     var goHome = document.getElementById("back");
-    var ld = document.getElementById("leaderboard");
+    var ld = document.getElementById("leaderboard_wrapper");
     var htp = document.getElementById("HTP");
+    var body = document.querySelector("body");
     startButton.style.display = "none";
     title.style.display = "none";
     ld.style.display = "none";
     htp.style.display = "none";
     goHome.style.display = "none";
+    body.style.height = "75vh";
 
     // 게임 시작 시간 기록
     startTime = new Date().getTime();
@@ -95,12 +97,14 @@ function updateTimer() {
         startButton.style.display = "block";
         var title = document.getElementById("title");
         title.style.display = "block";
-        var ld = document.getElementById("leaderboard");
+        var ld = document.getElementById("leaderboard_wrapper");
         ld.style.display = "block";
         var htp = document.getElementById("HTP");
         htp.style.display = "block";
         var goHome = document.getElementById("back");
         goHome.style.display = "block";   //게임이 끝난 뒤 GUI 다시 표시
+        var body = document.querySelector("body");
+        body.style.height = "100%";
 
 
         var playerName = prompt("랭킹에 등록하기 위한 이름을 입력하세요 : ","플레이어"); //이름 input

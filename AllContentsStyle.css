@@ -37,7 +37,6 @@ header{
     float: left;
     background-color: rgb(255, 255, 255);
     position: absolute;
-    border-radius: 20px;
 }
 .game img{
     width: 200px;

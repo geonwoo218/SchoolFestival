@@ -15,6 +15,7 @@ let gameStart = false;
 let currentNumber = 1; //맞춰야하는 숫자
 let gameOver = false;
 let displayTime = 3000; // 초기 보여주는 시간 
+var cnt = 1;
 
 function startGame() {
     gameStart = true;
@@ -116,7 +117,7 @@ function clickNumber(event) {
         currentNumber++;
 
         if (currentNumber > numbers.length) {
-             // 모든 숫자를 올바르게 클릭한 경우
+            // 모든 숫자를 올바르게 클릭한 경우
             nextGame();
         }
     } else {
@@ -130,8 +131,8 @@ function clickNumber(event) {
         gameOver = true;
     }
 }
-function endGame(){
-    gameOverMessage.style.display ='none';
+function endGame() {
+    gameOverMessage.style.display = 'none';
     // 모든 숫자 박스
     var numBoxes = document.querySelectorAll('#numList div');
 
@@ -151,28 +152,29 @@ function nextGame() {
     numContainer.innerHTML = ''; // 숫자 박스 제거
     exBoxes = []; // 이미 놓인 박스 배열 초기화
 
-    
-     //난이도 업
-    var cnt = 0;
 
-     if (cnt % 3 === 0) {
-         numbers.push(nextNumber);
-         displayTime -= 100; // 
-         if (displayTime < 100) {
-             displayTime = 100; // 최소값 설정
-         }
-     }
-     cnt++;
-     nextNumber++;
+    //난이도 업
+
+    if (cnt % 3 === 0) {
+        numbers.push(nextNumber);
+        console.log(numbers);
+        console.log(cnt);
+        nextNumber++;
+    }
+    displayTime -= 100; // 
+    if (displayTime < 100) {
+        displayTime = 100; // 최소값 설정
+    }
+    cnt++;
     startGame(); // 게임 다시 시작
 }
 
 //게임방법 팝업창
-jQuery(document).ready(function(){
-    $('#howBtn').click(function(){
+jQuery(document).ready(function () {
+    $('#howBtn').click(function () {
         $('#howToPlayBg').fadeIn();
     })
-    $('#close').click(function(){
+    $('#close').click(function () {
         $("#howToPlayBg").fadeOut();
     })
 })
