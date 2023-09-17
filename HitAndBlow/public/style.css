@@ -10,27 +10,28 @@ a {
     display: block;
 }
 
+/*========================body==========================*/
 body {
     width: 100%;
-    min-height: 100vh;
-    background-color: antiquewhite;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
+    height: 700px;
+    background-color: rgb(116, 116, 116);
 }
 
+/*========================header==========================*/
 header {
     width: 100%;
     height: 100px;
-    background-color: azure;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
+    line-height: 100px;
+    background: rgb(25, 24, 71);
+    background: linear-gradient(90deg, rgba(25, 24, 71, 1) 0%, rgba(78, 34, 130, 1) 43%, rgba(126, 44, 184, 1) 100%);
+    font-size: 40px;
+    text-align: center;
     font-weight: bold;
+    color: white;
 }
-#startBg{
+
+/*===================시작버튼================================*/
+#startBg {
     width: 100%;
     height: calc(100% - 200px);
     position: absolute;
@@ -38,35 +39,45 @@ header {
     top: 100px;
     background-color: rgba(0, 0, 0, 0.394);
 }
-#start{
+
+#start {
     width: 500px;
     height: 250px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     position: absolute;
     cursor: pointer;
 }
-#content {
-    max-width: 1500px;
+
+/*========================게임판=========================*/
+.bodywrap {
     width: 100%;
-    flex: 1;
-    background-color: beige;
-    display: flex;
-    justify-content: space-between;
+    height: calc(100vh - 200px);
+    background-image: url(images/hitandblowBg.png);
+
     padding: 20px;
-    display: none;
 }
 
-.set{
+#content {
+    display: none;
+    height: 100%;
+}
+
+.set {
     flex: 1;
     margin: 0 10px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 24px;
 }
 
 .hbContainer {
     display: grid;
     grid-template-columns: 50px 50px;
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
 }
 
 .hbbox {
@@ -97,23 +108,74 @@ header {
     text-align: center;
     color: white;
 }
-.resultbox{
+
+.resultbox {
     margin-top: 110px;
 }
-#colorList{
-    width: 800px;
+
+/*=============hit blow 설명문===================*/
+.hitblow {
+    width: 70%;
     height: 100px;
-    background-color: blueviolet;
-    display: none;
-    margin-bottom: 100px;
+    line-height: 100px;
+    background-color: rgb(128, 155, 101);
+    font-size: 24px;
+    float: left;
+}
+
+.hit {
+    float: left;
+    margin-left: 100px;
+}
+
+.hitcolor {
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+    background-color: red;
+    float: left;
+    border-radius: 30px;
+    margin-right: 15px;
+}
+
+.blow {
+    float: right;
+    margin-right: 100px;
+}
+
+.blowcolor {
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+    background-color: yellow;
+    float: left;
+    border-radius: 30px;
+    margin-right: 15px;
+}
+
+/*======================COLORlIST======================*/
+#colorList {
+    width: 30%;
+    height: 100px;
+    float: right;
+    background-color: rgb(167, 167, 230);
+}
+
+.colorspan {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
 }
 .colorbox{
-    width: 100px;
-    height: 100px;
+    width: 40px;
+    height: 40px;
     float: left;
-    margin-left: 29px;
-    border-radius: 50px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 30px;
 }
 .c1{
     background-color: blue;
@@ -133,23 +195,20 @@ header {
 .c6{
     background-color: gray;
 }
+
+/*========================footer==========================*/
+
 footer {
     width: 100%;
     height: 100px;
-    background-color: aqua;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    bottom: 0px;
     position: absolute;
-    bottom: 0;
+    background: rgb(25, 24, 71);
+    background: linear-gradient(90deg, rgba(126, 44, 184, 1) 0%, rgba(78, 34, 130, 1) 43%, rgba(25, 24, 71, 1) 100%);
+
 }
-footer button{
-    width: 200px;
-    height: 80px;
-    margin-top: 10px;
-    border-radius: 20px;
-    cursor: pointer;
-}
+
+/*==================팝업창==============================*/
 #htpbg {
     display: none;
     position: absolute;
@@ -184,7 +243,7 @@ footer button{
 .htpp {
     width: 100%;
     height: calc(100vh - 110px);
-    line-height: 110px;
+    line-height: 75px;
 }
 
 .close {
