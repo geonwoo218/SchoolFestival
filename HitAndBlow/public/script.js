@@ -58,17 +58,18 @@ document.addEventListener('keydown', (event) => {
             }
             break;
         case 'Enter': // 다음 위치로 이동
-        if (SetPosition < sets.length-1) {
+       if (SetPosition < sets.length) {
             // 현재 set의 선택된 박스에서 엔터를 누르면 SetPosition을 증가시킴
             SetPosition++; // 다음 set
             selectedPosition = 1; // 첫 번째 박스로 이동
             selectedSet = sets[SetPosition]; // 새로운 set 선택
             previous.textContent = "";
             HitandBlow();
-        }else if(SetPosition === sets.length){
+        }else{
             HitandBlow();
         }
-  
+
+        
         
     }
 
@@ -158,7 +159,9 @@ function HitandBlow() {
     
     
     console.log("============================================");
-
+    if(SetPosition === sets.length){
+        gameCheck(hit);
+    }
 }
 
 function gameCheck(hit){

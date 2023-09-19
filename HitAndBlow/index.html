@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="public/style.css">
     <title>hit and blow</title>
 </head>
@@ -15,7 +15,7 @@
 
     <div class="bodywrap">
         <div id="startBg">
-            <button id="start">게임 시작</button>
+            <button id="start" class="custom stdbtn">게임 시작</button>
         </div>
         <div id="content">
             <div class="set">
@@ -26,7 +26,7 @@
                     <div class="hbbox"></div>
                 </div>
                 <div class="colorContainer">
-                    <div class="box"></div>
+                    <div class="box">☜&nbsp;&nbsp;&nbsp;☞</div>
                     <div class="box"></div>
                     <div class="box"></div>
                     <div class="box"></div>
@@ -159,9 +159,9 @@
         <div class="colorbox c6"></div>
     </div>
     <footer>
-        <a href="../AllContents.html"><button id="home">홈 버튼</button></a>
-        <button id="howTo" onclick="howtoplay()">게임방법</button>
-        <button id="restart" onclick="gameRestart()">다시하기</button>
+        <a href="../AllContents.html"><button id="home" class="custom btn"><span>홈 버튼</span></button></a>
+        <button id="howTo" class="custom btn" onclick="howtoplay()"><span>게임방법</span></button>
+        <button id="restart" class="custom btn" onclick="gameRestart()"><span>다시하기</span></button>
     </footer>
 
     <!--게임방법 팝업창-->
