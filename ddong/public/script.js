@@ -86,7 +86,7 @@ function createPlayer() {
     playerImg.className = 'player';
     playerImg.style.width = "70px";
     playerImg.style.height = "88px";
-    playerImg.src = "public/player.png";
+    playerImg.src = "public/images/player.png";
     return playerImg;
 }
 
@@ -142,7 +142,7 @@ function createPoop() {
     poop.className = "poop";
     poop.style.width = "30px";
     poop.style.height = "30px";
-    poop.src = "public/poop.png";
+    poop.src = "public/images/poop.png";
     poop.style.position = 'absolute';
     poop.style.left = poopX + 'px';
     gameContainer.appendChild(poop);
