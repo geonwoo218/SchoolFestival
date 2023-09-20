@@ -5,6 +5,8 @@ const startBg = document.getElementById('startBg');
 const colorList = document.getElementById('colorList');
 const header = document.querySelector('header');
 const htpbg = document.getElementById('htpbg');
+const resultset = document.querySelector('.resultset');
+const resBox = resultset.querySelectorAll('.box');
 
 startBtn.addEventListener('click', GameStart);
 
@@ -14,7 +16,8 @@ function GameStart() { //게임시작
     colorList.style.display = 'block';
     startBtn.style.display = "none";
     startBg.style.display = "none";
-    addResultBox();
+
+    getRanddomColor();
 }
 function howtoplay() { //게임방법 팝업창
     htpbg.style.display = "block";
@@ -37,6 +40,7 @@ let previous; //이전 위치
 // 키보드 이벤트 처리
 document.addEventListener('keydown', (event) => {
     let selectedSet = sets[SetPosition]; // 현재 선택된 set
+    let userColored = selectedSet.querySelectorAll(".box");
 
     switch (event.key) {
         case 'ArrowLeft': // 이전 색상 선택
@@ -48,7 +52,7 @@ document.addEventListener('keydown', (event) => {
         case 'ArrowUp': // 위로 이동
             if (selectedPosition > 1) {
                 selectedPosition--;
-                previous.textContent="";
+                previous.textContent = "";
             }
             break;
         case 'ArrowDown': // 아래로 이동
@@ -58,24 +62,24 @@ document.addEventListener('keydown', (event) => {
             }
             break;
         case 'Enter': // 다음 위치로 이동
-       if (SetPosition < sets.length) {
-            // 현재 set의 선택된 박스에서 엔터를 누르면 SetPosition을 증가시킴
-            SetPosition++; // 다음 set
-            selectedPosition = 1; // 첫 번째 박스로 이동
-            selectedSet = sets[SetPosition]; // 새로운 set 선택
-            previous.textContent = "";
-            HitandBlow();
-        }else{
-            HitandBlow();
-        }
-
-        
-        
+            let fillColor = Array.from(userColored).every(box => box.style.backgroundColor !== "white");
+            if (fillColor) {
+                if (SetPosition < sets.length) {
+                    // 현재 set의 선택된 박스에서 엔터를 누르면 SetPosition을 증가시킴
+                    SetPosition++; // 다음 set
+                    selectedPosition = 1; // 첫 번째 박스로 이동
+                    selectedSet = sets[SetPosition]; // 새로운 set 선택
+                    previous.textContent = "";
+                    HitandBlow();
+                } else {
+                    HitandBlow();
+                }
+            }
     }
 
     // 선택된 위치를 화면에 표시하고 포커스를 업데이트
     const selectedElement = selectedSet.querySelector(`.box:nth-child(${selectedPosition})`);
-    
+
     selectedElement.focus();
     selectedElement.textContent = "☜\u00A0\u00A0\u00A0☞";
 
@@ -103,24 +107,15 @@ function getRanddomColor() {
     }
     return randColorIndex.map((ColorIndex) => colors[ColorIndex]);
 }
+
 const resultColor = getRanddomColor(); //결과 색
 
-function addResultBox() {
-    const resultBox = document.querySelector('.resultbox');
-    const resultBoxes = resultBox.querySelectorAll('.box');
-
-    resultColor.forEach((color, index) => {
-        resultBoxes[index].style.backgroundColor = color;
-    });
-}
-
 //hit and blow 처리
-
 function HitandBlow() {
-    let selectset = sets[SetPosition-1]; // 현재 선택된 set
+    let selectset = sets[SetPosition - 1]; // 현재 선택된 set
     const colorContainer = selectset.querySelector('.colorContainer');
     const colorboxes = colorContainer.querySelectorAll('.box');
-    let userColor = [];
+    let userColor = []; //사용자색
 
     colorboxes.forEach((box) => { //사용자 색상 배열
         const backgroundColor = box.style.backgroundColor;
@@ -129,21 +124,27 @@ function HitandBlow() {
         }
     });
 
-    console.log("사용자 "+userColor);
-    console.log('결과 '+resultColor);
+    console.log("사용자 " + userColor);
+    console.log('결과 ' + resultColor);
 
     let hit = 0, blow = 0;
     const checkColor = userColor.filter((i, index, self) => self.indexOf(i) === index); //사용자 중복색제거
-
-    for (let i = 0; i < 4; i++) {
-        if (checkColor[i] === resultColor[i]) {
-            hit++;
-        } else if (resultColor.includes(checkColor[i])) {
+    for (let i = 0; i < checkColor.length; i++) {
+        if (resultColor.includes(checkColor[i])) {
             blow++;
         }
     }
-    console.log("hit "+hit);
-    console.log("blow "+blow);
+    console.log("hit 전 blow " + blow);
+
+    for (let i = 0; i < userColor.length; i++) {
+        if (userColor[i] === resultColor[i]) {
+            hit++;
+            blow--;
+        }
+    }
+
+    console.log("hit " + hit);
+    console.log("blow " + blow);
     //hb 색추가
     const hbContainer = selectset.querySelector('.hbContainer');
     const hbbox = hbContainer.querySelectorAll('.hbbox');
@@ -154,29 +155,35 @@ function HitandBlow() {
     for (let i = 0; i < blow; i++) {
         hbbox[index++].style.backgroundColor = "yellow";
     }
-    console.log("setposition "+SetPosition);
-    console.log("sets.length "+sets.length);
-    
-    
+
     console.log("============================================");
-    if(SetPosition === sets.length){
+    if (hit === 4) {
+        gameWin();
+    }
+    if (SetPosition === sets.length) {
         gameCheck(hit);
     }
 }
 
-function gameCheck(hit){
-    if(hit === 4){
+function gameCheck(hit) {
+    if (hit === 4) {
         gameWin();
-    }else{
+    } else {
         gameOver();
     }
 }
 
-function gameWin(){
+function gameWin() {
+    for (let i = 0; i < resBox.length; i++) {
+        resBox[i] = resultColor[i];
+    }
     alert("win");
 }
 
-function gameOver(){
+function gameOver() {
+    for (let i = 0; i < resBox.length; i++) {
+        resBox[i] = resultColor[i];
+    }
     alert("over");
 }
 

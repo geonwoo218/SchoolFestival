@@ -142,7 +142,7 @@ header {
     line-height: 70px;
     font-size: 20px;
     font-weight: bold;
-    background-color: #ececec;
+    background-color: #ffffff;
     margin-bottom: 10px;
     border-radius: 50px;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -151,17 +151,20 @@ header {
 }
 
 .resultbox {
-    margin-top: 110px;
+    margin-top: 135px;
 }
-
+.resultbox .box{
+ background-color: white;
+}
 /*=============hit blow 설명문===================*/
 .hitblow {
     width: 70%;
     height: 100px;
     line-height: 100px;
-    background-color: rgb(128, 155, 101);
+    background-color: rgb(22, 22, 22);
     font-size: 24px;
     float: left;
+    color: white;
 }
 
 .hit {
@@ -199,7 +202,7 @@ header {
     width: 30%;
     height: 100px;
     float: right;
-    background-color: rgb(167, 167, 230);
+    background-color: rgb(22, 22, 22);
 }
 
 .colorspan {
@@ -380,6 +383,7 @@ footer {
     left: 0;
     background-color: rgba(0, 0, 0, 0.4);
     font-size: 24px;
+    z-index: 5;
 }
 
 .htpwrap {
@@ -392,6 +396,7 @@ footer {
     transform: translate(-50%, -50%);
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.6);
     text-align: center;
+    z-index: 6;
 }
 
 .htptitle {

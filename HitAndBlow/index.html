@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no,minimum-scale=1">
     <link rel="stylesheet" href="public/style.css">
     <title>hit and blow</title>
 </head>
@@ -11,6 +11,13 @@
 <body>
     <header>
         Hit and Blow
+        <script>
+            function preventZoom(e){
+                    event.preventDefault();
+            }
+
+            window.addEventListener('wheel',preventZoom,{passive : false});
+        </script>
     </header>
 
     <div class="bodywrap">
@@ -132,10 +139,10 @@
             </div>
             <div class="resultset">
                 <div class="resultbox">
-                    <div class="box">re1</div>
-                    <div class="box">re2</div>
-                    <div class="box">re3</div>
-                    <div class="box">re4</div>
+                    <div class="box">결</div>
+                    <div class="box">과</div>
+                    <div class="box">색</div>
+                    <div class="box">들</div>
                 </div>
             </div>
         </div>
@@ -172,7 +179,7 @@
             </div>
             <div class="htpp">
                 임의로 정해진 색깔 조합을 맞추는게 게임에 목표 입니다. <br>
-                색깔은 맞지만 위치가 틀렸으면 BLOW(회색) <br>
+                색깔은 맞지만 위치가 틀렸으면 BLOW(노란색) <br>
                 위치까지 맞았으면 HIT(빨강색)입니다. <br>
                 8번의 기회 안에 4HIT를 하면 됩니다.
             </div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="public/style.css" rel="stylesheet">
+    <title>똥피하기</title>
+</head>
+<body>
+    <div id="GUI">
+        <div id="title">똥 피하기 with ImBaerit</div>
+        <button id="start" class="guiButton" onclick="startGame()">START</button>
+        <button id="HowToPlay" class="guiButton" onclick="howtoplay()">HOW TO PLAY</button>
+        <a href="../AllContents.html"><button id="home" class="guiButton">홈으로</button></a>
+        <ul id="leaderboard">
+            <h1>leaderboard</h1>
+        </ul>
+    </div>
+    <div class="htpbg">
+        <div class="htpwrap">
+            <div class="htptitle">
+                게임 방법
+            </div>
+            <div class="htpp">
+                START 를 누른 뒤,<br>
+                하늘에서 떨어지는 똥을<br>
+                피하면 되는 게임
+            </div>
+            <div class="close" onclick="htpclose()">
+                닫기
+            </div>
+        </div>
+    </div>
+    <div id="gameContainer"><div id="gameTimeDisplay"></div></div>
+    <script src="public/script.js" defer></script>
+</body>
+</html>
