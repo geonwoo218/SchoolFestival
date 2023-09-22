@@ -33,7 +33,7 @@ const colors = ['blue', 'red', 'green', 'yellow', 'pink', 'gray'];
 const sets = document.querySelectorAll('.set');
 
 let ColorIndex = 0; // 선택된 색상 인덱스
-let selectedPosition = 1; // 선택된 위치 (1-1)
+let selectedPosition = 1; // 선택된 위치
 let SetPosition = 0; // 첫번째 set 
 let previous; //이전 위치
 
@@ -41,7 +41,7 @@ let previous; //이전 위치
 document.addEventListener('keydown', (event) => {
     let selectedSet = sets[SetPosition]; // 현재 선택된 set
     let userColored = selectedSet.querySelectorAll(".box");
-
+    console.log(userColored);
     switch (event.key) {
         case 'ArrowLeft': // 이전 색상 선택
             ColorIndex = (ColorIndex - 1 + colors.length) % colors.length;
@@ -62,8 +62,19 @@ document.addEventListener('keydown', (event) => {
             }
             break;
         case 'Enter': // 다음 위치로 이동
-            let fillColor = Array.from(userColored).every(box => box.style.backgroundColor !== "white");
-            if (fillColor) {
+  /*          let fillColor = [];
+            for(let i = 0;i<userColored.length;i++){
+                fillColor[i] = userColored[i].style.backgroundColor;
+            }
+            console.log("fillcolor : "+fillColor);
+            let checkfill = true;
+            for(let i = 0; i<fillColor.length;i++){
+                if(fillColor[i] === "white");
+                checkfill = false;
+                break;
+            }
+*/ let checkfill = true;
+            if (checkfill) {
                 if (SetPosition < sets.length) {
                     // 현재 set의 선택된 박스에서 엔터를 누르면 SetPosition을 증가시킴
                     SetPosition++; // 다음 set
@@ -82,11 +93,6 @@ document.addEventListener('keydown', (event) => {
 
     selectedElement.focus();
     selectedElement.textContent = "☜\u00A0\u00A0\u00A0☞";
-
-    // 첫 번째 박스에 ☜\u00A0\u00A0\u00A0☞ 표시
-    if (selectedPosition === 1) {
-        selectedElement.textContent = "☜\u00A0\u00A0\u00A0☞";
-    }
 
     // 왼쪽 또는 오른쪽 화살표 키를 누를 때, 배경색 변경
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
@@ -175,14 +181,14 @@ function gameCheck(hit) {
 
 function gameWin() {
     for (let i = 0; i < resBox.length; i++) {
-        resBox[i] = resultColor[i];
+        resBox[i].style.backgroundColor = resultColor[i];
     }
     alert("win");
 }
 
 function gameOver() {
     for (let i = 0; i < resBox.length; i++) {
-        resBox[i] = resultColor[i];
+        resBox[i].style.backgroundColor = resultColor[i];
     }
     alert("over");
 }
