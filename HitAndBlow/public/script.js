@@ -5,8 +5,6 @@ const startBg = document.getElementById('startBg');
 const colorList = document.getElementById('colorList');
 const header = document.querySelector('header');
 const htpbg = document.getElementById('htpbg');
-const resultset = document.querySelector('.resultset');
-const resBox = resultset.querySelectorAll('.box');
 
 startBtn.addEventListener('click', GameStart);
 
@@ -17,7 +15,6 @@ function GameStart() { //게임시작
     startBtn.style.display = "none";
     startBg.style.display = "none";
 
-    getRanddomColor();
 }
 function howtoplay() { //게임방법 팝업창
     htpbg.style.display = "block";
@@ -40,8 +37,8 @@ let previous; //이전 위치
 // 키보드 이벤트 처리
 document.addEventListener('keydown', (event) => {
     let selectedSet = sets[SetPosition]; // 현재 선택된 set
-    let userColored = selectedSet.querySelectorAll(".box");
-    console.log(userColored);
+    // let userColored = selectedSet.querySelectorAll(".box");
+
     switch (event.key) {
         case 'ArrowLeft': // 이전 색상 선택
             ColorIndex = (ColorIndex - 1 + colors.length) % colors.length;
@@ -116,6 +113,24 @@ function getRanddomColor() {
 
 const resultColor = getRanddomColor(); //결과 색
 
+function addResultBox(callback) { //결과 상자에 색 추가
+    const resultBox = document.querySelector('.resultbox');
+    const resultBoxes = resultBox.querySelectorAll('.box');
+    const resultColorList = resultColor;
+
+    resultColorList.forEach((color, index) => {
+        setTimeout(() => {
+            resultBoxes[index].style.backgroundColor = color;
+
+            if (index === resultColorList.length - 1) {
+                // 마지막 박스가 설정되면 콜백 함수 호출
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            }
+        }, index * 1000);
+    })
+}
 //hit and blow 처리
 function HitandBlow() {
     let selectset = sets[SetPosition - 1]; // 현재 선택된 set
@@ -164,32 +179,34 @@ function HitandBlow() {
 
     console.log("============================================");
     if (hit === 4) {
-        gameWin();
+        addResultBox(gameWin);
     }
     if (SetPosition === sets.length) {
         gameCheck(hit);
     }
 }
 
+
 function gameCheck(hit) {
     if (hit === 4) {
-        gameWin();
+        addResultBox(gameWin);
     } else {
-        gameOver();
+        addResultBox(gameOver);
     }
 }
+const gameWinmsg = document.getElementById('gameWin');
+const gameOvermsg = document.getElementById('gameOver');
+
 
 function gameWin() {
-    for (let i = 0; i < resBox.length; i++) {
-        resBox[i].style.backgroundColor = resultColor[i];
-    }
-    alert("win");
+    setTimeout(() => {
+        gameWinmsg.style.display = "block";
+    }, 1000);
 }
 
 function gameOver() {
-    for (let i = 0; i < resBox.length; i++) {
-        resBox[i].style.backgroundColor = resultColor[i];
-    }
-    alert("over");
+    setTimeout(() => {
+        gameOvermsg.style.display = "block";
+    }, 1000);
 }
 

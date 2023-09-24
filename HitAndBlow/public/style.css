@@ -147,8 +147,38 @@ header {
 .resultbox {
     margin-top: 135px;
 }
-.resultbox .box{
- background-color: white;
+/*=============게암 종료 메세지===================*/
+.msg{
+    width: 670px;
+    height: 400px;
+    background-color: #95caff;
+    color: #fff;
+    font-size: 44px;
+    text-align: center;
+    font-weight: bold;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    text-shadow: 2px 2px 4px black;
+    border-radius: 30px;
+    border: 5px dashed #0020ff;
+}
+.msg span{
+    text-shadow: 5px 2px 4px darkblue, -3px -2px 4px #a900ff, 3px -3px 4px darkblue, -3px 2px 4px #a900ff;
+}
+#gameWin{
+    padding-top: 100px;
+}
+#gameWin{
+    font-size: 100px;
+}
+#gameOver{
+    padding-top: 80px;
+}
+#gameOver span{
+    font-size: 120px;
 }
 /*=============hit blow 설명문===================*/
 .hitblow {
