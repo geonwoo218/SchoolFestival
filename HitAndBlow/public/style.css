@@ -169,7 +169,7 @@ header {
     text-shadow: 5px 2px 4px darkblue, -3px -2px 4px #a900ff, 3px -3px 4px darkblue, -3px 2px 4px #a900ff;
 }
 #gameWin{
-    padding-top: 100px;
+    padding-top: 80px;
 }
 #gameWin{
     font-size: 100px;
@@ -423,7 +423,7 @@ footer {
     font-size: 50px;
     font-weight: bold;
     height: 110px;
-    line-height: 55px;
+    line-height: 110px;
 }
 
 .htpp {

@@ -37,7 +37,7 @@ let previous; //이전 위치
 // 키보드 이벤트 처리
 document.addEventListener('keydown', (event) => {
     let selectedSet = sets[SetPosition]; // 현재 선택된 set
-    // let userColored = selectedSet.querySelectorAll(".box");
+    
 
     switch (event.key) {
         case 'ArrowLeft': // 이전 색상 선택
@@ -59,18 +59,17 @@ document.addEventListener('keydown', (event) => {
             }
             break;
         case 'Enter': // 다음 위치로 이동
-  /*          let fillColor = [];
-            for(let i = 0;i<userColored.length;i++){
-                fillColor[i] = userColored[i].style.backgroundColor;
-            }
-            console.log("fillcolor : "+fillColor);
+            let userColored = selectedSet.querySelectorAll(".box");
             let checkfill = true;
-            for(let i = 0; i<fillColor.length;i++){
-                if(fillColor[i] === "white");
-                checkfill = false;
-                break;
+            for(let i = 0;i<userColored.length;i++){
+                const computedStyle = window.getComputedStyle(userColored[i]);
+                const backgroundColor = computedStyle.backgroundColor;
+
+                if (backgroundColor === 'rgb(255, 255, 255)' || backgroundColor === 'white') {
+                    checkfill = false;
+                    break;
+                }
             }
-*/ let checkfill = true;
             if (checkfill) {
                 if (SetPosition < sets.length) {
                     // 현재 set의 선택된 박스에서 엔터를 누르면 SetPosition을 증가시킴
@@ -164,8 +163,7 @@ function HitandBlow() {
         }
     }
 
-    console.log("hit " + hit);
-    console.log("blow " + blow);
+    console.log("hit " + hit + "blow " + blow);
     //hb 색추가
     const hbContainer = selectset.querySelector('.hbContainer');
     const hbbox = hbContainer.querySelectorAll('.hbbox');
