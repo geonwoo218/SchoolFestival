@@ -278,6 +278,9 @@ footer {
     height: 100px;
     bottom: 0px;
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     background: rgb(25, 24, 71);
     background: linear-gradient(90deg, rgba(126, 44, 184, 1) 0%, rgba(78, 34, 130, 1) 43%, rgba(25, 24, 71, 1) 100%);
 }
@@ -377,20 +380,7 @@ footer {
     width: 100%;
 }
 
-#home {
-    float: left;
-    margin-left: 20px;
-}
 
-#howTo {
-    float: left;
-    margin-left: 450px;
-}
-
-#restart {
-    float: right;
-    margin-right: 20px;
-}
 
 /*==================팝업창==============================*/
 #htpbg {
