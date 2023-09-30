@@ -1,0 +1,253 @@
+* {
+    padding: 0;
+    margin: 0 auto;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 98vh;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+header {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background-color: rgb(113 115 203 / 66%);
+    text-align: center;
+}
+
+header span {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 7px 2px 0px rgba(0,0,0,0.5);
+    -webkit-text-stroke: 2px #0000007b;
+}
+
+#gameBoard {
+    width: 100%;
+    height: calc(100vh - 200px);
+    background-color: rgb(36,48,71);
+    text-align: center;
+    position: relative;
+}
+
+#startBtn {
+    line-height: 200px;
+    height: 200px;
+    text-align: center;
+    width: 400px;
+    cursor: pointer;
+    background-color: #3C3C3C;
+    color: #FFF;
+  transition: all 0.5s;
+  position: relative; 
+  margin-top: 150px;
+}
+#startBtn span{
+    z-index: 2; 
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+}
+#startBtn::before{
+    content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255,255,255,0.1);
+}
+#startBtn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  #startBtn:hover::before {
+    transform: rotate(-45deg);
+    background-color: rgba(255,255,255,0);
+  }
+
+  #startBtn:hover::after {
+    transform: rotate(45deg);
+    background-color: rgba(255,255,255,0);
+  }
+
+#home,
+#howBtn,
+#restart {
+    width: 200px;
+    height: 80px;
+    text-align: center;
+    border: 5px solid #6bb170;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-size: 24px;
+    top: 11px;
+    font-weight: bold;
+}
+
+#home:hover,
+#howBtn:hover,
+#restart:hover {
+    transform: scale(0.9);
+    background-color: #6bb170;
+    color: white;
+}
+
+#home {
+    float: left;
+    left: 9px;
+    position: absolute;
+}
+
+#restart {
+    float: right;
+    right: 9px;
+    position: absolute;
+}
+#howBtn{
+    position: absolute;
+    left: calc(50% - 100px);
+}
+#gameOver {
+    position: fixed;
+    width: 100%;
+    display: none;
+    background-color: black;
+    border-top: 10px solid red;
+    border-bottom: 10px solid red;   
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Aldrich', sans-serif;
+}
+.gameOverBody{
+    width: 100%;
+    height: 450px;
+    line-height: 220px;
+    font-size: 200px;
+    font-weight: 900;
+    color: yellow;
+    -webkit-text-stroke: 2px red;
+}
+.close{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    text-align: center;
+}
+#numList div {
+    border-radius: 30px;
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(113 115 203 / 66%);
+    position: relative;
+}
+
+#howToPlayBg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000050;
+    display: none;
+    z-index: 3;
+}
+
+#howToPlay{
+    position: absolute;
+    z-index: 4;
+    width: 475px;
+    height: 255px;
+    background-color: bisque;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#title{
+    width: 475px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    border-bottom: 1px solid black;
+}
+
+#body{
+    width: 455px;
+    height: 155px;
+    padding: 10px;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+#close{
+    color: black;
+    width: 70px;
+    height: 30px;
+    line-height: 22px;
+    text-align: center;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.76);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 21px;
+}
+
+.rounds {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: lightskyblue;
+    position: fixed;
+    color: white;
+    top: 70px;
+    right: 0;
+}
+
+.endGameScore {
+    position: fixed;
+    top:15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 50px;
+}
