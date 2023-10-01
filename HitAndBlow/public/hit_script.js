@@ -5,16 +5,19 @@ const startBg = document.getElementById('startBg');
 const colorList = document.getElementById('colorList');
 const header = document.querySelector('header');
 const htpbg = document.getElementById('htpbg');
+const clickSound = document.getElementById('click');
+const clickStart = document.getElementById('clickStart');
+const clickEnter = document.getElementById('clickEnter');
 
 startBtn.addEventListener('click', GameStart);
 
 function GameStart() { //게임시작
+    clickStart.play();
     header.style.display = "none";
     content.style.display = 'flex';
     colorList.style.display = 'block';
     startBtn.style.display = "none";
     startBg.style.display = "none";
-
 }
 function howtoplay() { //게임방법 팝업창
     htpbg.style.display = "block";
@@ -25,6 +28,7 @@ function htpclose() { // 게임방법 팝업창
 function gameRestart() { // 다시시작
     window.location.reload();
 }
+
 //색깔 넣기
 const colors = ['blue', 'red', 'green', 'yellow', 'pink', 'gray'];
 const sets = document.querySelectorAll('.set');
@@ -41,9 +45,11 @@ document.addEventListener('keydown', (event) => {
 
     switch (event.key) {
         case 'ArrowLeft': // 이전 색상 선택
+        clickSound.play();
             ColorIndex = (ColorIndex - 1 + colors.length) % colors.length;
             break;
         case 'ArrowRight': // 다음 색상 선택
+        clickSound.play();
             ColorIndex = (ColorIndex + 1) % colors.length;
             break;
         case 'ArrowUp': // 위로 이동
@@ -59,6 +65,7 @@ document.addEventListener('keydown', (event) => {
             }
             break;
         case 'Enter': // 다음 위치로 이동
+            clickEnter.play();
             let userColored = selectedSet.querySelectorAll(".box");
             let checkfill = true;
             for(let i = 0;i<userColored.length;i++){
