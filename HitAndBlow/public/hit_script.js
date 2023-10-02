@@ -123,18 +123,19 @@ function addResultBox(callback) { //결과 상자에 색 추가
     const resultBox = document.querySelector('.resultbox');
     const resultBoxes = resultBox.querySelectorAll('.box');
     const resultColorList = resultColor;
+    const CorrectSound = document.getElementById('CorrectSound');
 
     resultColorList.forEach((color, index) => {
         setTimeout(() => {
             resultBoxes[index].style.backgroundColor = color;
-
+            CorrectSound.play();
             if (index === resultColorList.length - 1) {
                 // 마지막 박스가 설정되면 콜백 함수 호출
                 if (typeof callback === 'function') {
                     callback();
                 }
             }
-        }, index * 1000);
+        }, index * 1200);
     })
 }
 //hit and blow 처리
@@ -201,17 +202,20 @@ function gameCheck(hit) {
 }
 const gameWinmsg = document.getElementById('gameWin');
 const gameOvermsg = document.getElementById('gameOver');
-
+const winGameSound = document.getElementById('WinGameSound');
+const LoseGameSound = document.getElementById('LoseGameSound');
 
 function gameWin() {
     setTimeout(() => {
         gameWinmsg.style.display = "block";
+        winGameSound.play();
     }, 1000);
 }
 
 function gameOver() {
     setTimeout(() => {
         gameOvermsg.style.display = "block";
+        LoseGameSound.play();
     }, 1000);
 }
 

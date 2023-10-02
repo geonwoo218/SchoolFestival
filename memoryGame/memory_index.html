@@ -7,10 +7,6 @@
     <script src="../checkSpeedRun/public/code.jquery.com_jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="public/memory_style.css">
     <title>Memory Game</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="public/images/memoryIcon.png">
 </head>
 
@@ -26,7 +22,6 @@
             <div class="gameOverBody"> GAME <br>OVER</div>
             <div class="close" onclick="endGame()">close</div>
         </div>
-        <audio id="gameOverSound" src="public/gameOverSound.wav"></audio>
     </div>
     <div class="rounds">ROUND 0</div>
     <footer>
@@ -49,6 +44,9 @@
         <a href="../main_index.html"><button id="home">HOME</button></a>
         <button id="restart">RETRY</button>
     </footer>
+    <audio id="gameOverSound" src="public/audio/gameOverSound.wav"></audio>
+    <audio id="ClickSound" src="public/audio/ClickSound.wav"></audio>
+    <audio id="backSound" src="public/audio/backSound.wav" loop></audio>
     <script src="public/memmory_script.js"></script>
 </body>
 

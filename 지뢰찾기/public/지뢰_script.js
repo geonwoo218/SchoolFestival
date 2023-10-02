@@ -4,14 +4,14 @@ startBtn.addEventListener("click", setting);
 const COLOR = ["blue", "rgb(0,204,0)", "red", "purple", "orange", "olive", "brown", "black"];
 const tdArr = document.getElementsByTagName('td'); //테이블범위
 
-
 let row = 10;
 let col = 10;
 
 window.addEventListener("contextmenu", (e) => e.preventDefault());//우클릭메뉴제거
 
 function setting() {
-
+    const backMusic = document.getElementById('backMusic');
+    backMusic.play();
     const tnt = parseInt(document.getElementById("tnt").value);
     if (tnt == 0 || isNaN(tnt)) {
         alert("올바른 수를 입력해주세요 '^' ");
@@ -32,7 +32,7 @@ function setting() {
             tileEvent(i, getAroundArr(i));
         }
     }
-
+  
 }
 
 function getAroundArr(num) { //주변타일확인
@@ -96,7 +96,7 @@ function clickTile(targetNum, aroundArr) {
     const isOpen = tile.dataset.isOpen === "true"; // 이미 열려있는 타일인지 확인
     const isFlag = tile.classList.contains("flag"); // 깃발
     const isQMark = tile.classList.contains("qmark"); // 물음표
-    const isMine = tile.classList.contains("mine");
+    const isMine = tile.classList.contains("mine"); //지뢰
 
     if (isMine) {
         // 게임 오버 처리
@@ -189,6 +189,7 @@ function checkWinCondition() { // 승리
         gameWinMessage.style.display = "block";
         WinEndBg.style.display = "block";
         victorySound.play();
+        backMusic.pause();
     }
 }
 
@@ -202,6 +203,7 @@ function gameOver(){
     gameOverMessage.style.display = "block";
     OverEndBg.style.display = "block";
     gameOverSound.play();
+    backMusic.pause();
 }
 
 function MsgClose(){

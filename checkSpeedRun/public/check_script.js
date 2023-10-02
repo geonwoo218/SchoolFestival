@@ -3,6 +3,7 @@ var timerInterval;
 var gameActive = false;
 var leaderboard = [];
 
+
 window.onload = function(){
     /*var customURL = "CHECK SPEED RUN";
     window.history.pushState({}, document.title, customURL);
@@ -20,6 +21,7 @@ function startGame(){
     var htp = document.getElementById("HTP");
     var body = document.querySelector("body");
     var leaderboardT = document.getElementById("leaderboardT");
+
     startButton.style.display = "none";
     title.style.display = "none";
     ld.style.display = "none";
@@ -27,7 +29,7 @@ function startGame(){
     goHome.style.display = "none";
     body.style.height = "75vh";
     leaderboardT.style.display = "none";
-
+    
     // 게임 시작 시간 기록
     startTime = new Date().getTime();
 
@@ -67,7 +69,7 @@ function createRandomCheckBox(){
 function updateTimer() {
     //게임 종료 (false) 면 종료
     if(!gameActive){
-    return;
+        return;
     }
 
     var currentTime = new Date().getTime();

@@ -4,6 +4,7 @@ const gameOverMessage = document.getElementById('gameOver');
 const restartBtn = document.getElementById('restart');
 const gameOverSound = document.getElementById('gameOverSound');
 const rounds = document.querySelector('.rounds');
+const backSound = document.getElementById('backSound');
 
 stdBtn.addEventListener('click', startGame);
 numContainer.addEventListener('click', clickNumber);
@@ -23,6 +24,7 @@ function startGame() {
     stdBtn.style.display = "none";
     displayNumber();
     rounds.innerHTML = 'ROUND ' + cnt;
+    backSound.play();
 }
 
 function restartGame() {
@@ -110,7 +112,9 @@ function numBoxCss(numBox) {
 
 function clickNumber(event) {
     if (gameOver) return;
-
+    const ClickSound = document.getElementById('ClickSound');
+    ClickSound.playbackRate = 1.1;
+    ClickSound.play();
     var clickedNumber = parseInt(event.target.innerText);
 
     if (clickedNumber === currentNumber) {
@@ -124,6 +128,7 @@ function clickNumber(event) {
         }
     } else {
         // 순서가 틀린 경우
+        backSound.pause();
         event.target.style.backgroundColor = 'red'; // 틀린 경우 배경색 변경
         event.target.style.color = "white";
         //gameOverMessage.innerText = 'GAME\nOVER';
@@ -135,6 +140,7 @@ function clickNumber(event) {
         gameOver = true;
     }
 }
+
 function endGame() {
     gameOverMessage.style.display = 'none';
     // 모든 숫자 박스
