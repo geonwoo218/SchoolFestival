@@ -1,0 +1,434 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+}
+
+/*========================body==========================*/
+body {
+    width: 100%;
+    height: 700px;
+    background-color: rgb(116, 116, 116);
+}
+
+/*========================header==========================*/
+header {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: rgb(25, 24, 71);
+    background: linear-gradient(90deg, rgba(25, 24, 71, 1) 0%, rgba(78, 34, 130, 1) 43%, rgba(126, 44, 184, 1) 100%);
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+/*===================시작버튼================================*/
+#startBg {
+    width: 100%;
+    height: calc(100% - 200px);
+    position: absolute;
+    left: 0;
+    top: 100px;
+    background-color: rgba(0, 0, 0, 0.394);
+}
+
+#start {
+    width: 800px;
+    height: 250px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    cursor: pointer;
+    z-index: 4;
+    background-color: rgb(209, 175, 227);
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.stdbtn {
+      overflow: hidden;
+  }
+  .stdbtn span{
+    color: rgb(242 0 255);
+    text-shadow: 3px 3px 4px white, -3px -3px 4px #727272, 3px -3px 4px #1b1b4d, -3px 3px 4px #454522;
+    transition: color 0.3s;
+}
+  .stdbtn span:hover {
+      color: #657ddf;
+  }
+  .stdbtn:before {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      top: -180px;
+      left: 0;
+      width: 50px;
+      height: 100%;
+      background-color: #fff;
+      animation: shiny-btn1 3s ease-in-out infinite;
+  }
+ 
+  
+  @-webkit-keyframes shiny-btn1 {
+      0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+      80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+      81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+      100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+  }
+  
+/*========================게임판=========================*/
+.bodywrap {
+    width: 100%;
+    height: calc(100vh - 200px);
+    background-image: url(images/hitandblowBg.png);
+
+    padding: 20px;
+}
+
+#content {
+    display: none;
+    height: 100%;
+}
+
+.set {
+    flex: 1;
+    margin: 0 10px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 24px;
+}
+
+.hbContainer {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+}
+
+.hbbox {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.colorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.box {
+    width: 80px;
+    height: 80px;
+    line-height: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.resultbox {
+    margin-top: 135px;
+}
+/*=============게암 종료 메세지===================*/
+.msg{
+    width: 670px;
+    height: 400px;
+    background-color: #95caff;
+    color: #fff;
+    font-size: 44px;
+    text-align: center;
+    font-weight: bold;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    text-shadow: 2px 2px 4px black;
+    border-radius: 30px;
+    border: 5px dashed #0020ff;
+}
+.msg span{
+    text-shadow: 5px 2px 4px darkblue, -3px -2px 4px #a900ff, 3px -3px 4px darkblue, -3px 2px 4px #a900ff;
+}
+#gameWin{
+    padding-top: 80px;
+}
+#gameWin{
+    font-size: 100px;
+}
+#gameOver{
+    padding-top: 80px;
+}
+#gameOver span{
+    font-size: 120px;
+}
+/*=============hit blow 설명문===================*/
+.hitblow {
+    width: 70%;
+    height: 100px;
+    line-height: 100px;
+    background-color: rgb(22, 22, 22);
+    font-size: 24px;
+    float: left;
+    color: white;
+}
+
+.hit {
+    float: left;
+    margin-left: 100px;
+}
+
+.hitcolor {
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+    background-color: red;
+    float: left;
+    border-radius: 30px;
+    margin-right: 15px;
+}
+
+.blow {
+    float: right;
+    margin-right: 100px;
+}
+
+.blowcolor {
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
+    background-color: yellow;
+    float: left;
+    border-radius: 30px;
+    margin-right: 15px;
+}
+
+/*======================COLORlIST======================*/
+#colorList {
+    width: 30%;
+    height: 100px;
+    float: right;
+    background-color: rgb(22, 22, 22);
+}
+
+.colorspan {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.colorbox {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 30px;
+}
+
+.c1 {
+    background-color: blue;
+}
+
+.c2 {
+    background-color: red;
+}
+
+.c3 {
+    background-color: green;
+}
+
+.c4 {
+    background-color: yellow;
+}
+
+.c5 {
+    background-color: pink;
+}
+
+.c6 {
+    background-color: gray;
+}
+
+/*========================footer==========================*/
+
+footer {
+    width: 100%;
+    height: 100px;
+    bottom: 0px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: rgb(25, 24, 71);
+    background: linear-gradient(90deg, rgba(126, 44, 184, 1) 0%, rgba(78, 34, 130, 1) 43%, rgba(25, 24, 71, 1) 100%);
+}
+
+.custom {
+    width: 200px;
+    height: 70px;
+    color: #000000;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+    margin-top: 15px;
+}
+
+.btn {
+    background-image: linear-gradient(162deg, #6c84ff 30%, #c797eb 70%);
+    line-height: 70px;
+    padding: 0;
+    border: none;
+}
+
+.btn span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+}
+
+.btn:before,
+.btn:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.btn:before {
+    height: 0%;
+    width: 3px;
+}
+
+.btn:after {
+    width: 0%;
+    height: 3px;
+}
+
+.btn:hover:before {
+    height: 100%;
+}
+
+.btn:hover:after {
+    width: 100%;
+}
+
+.btn:hover {
+    background: transparent;
+}
+
+.btn span:before,
+.btn span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: #92d2f3;
+    transition: all 0.3s ease;
+}
+
+.btn span:before {
+    width: 3px;
+    height: 0%;
+}
+
+.btn span:after {
+    height: 3px;
+    width: 0%;
+}
+
+.btn span:hover:before {
+    height: 100%;
+}
+
+.btn span:hover:after {
+    width: 100%;
+}
+
+
+
+/*==================팝업창==============================*/
+#htpbg {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 24px;
+    z-index: 5;
+}
+
+.htpwrap {
+    position: fixed;
+    width: 875px;
+    height: 500px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    z-index: 6;
+}
+
+.htptitle {
+    width: 100%;
+    font-size: 50px;
+    font-weight: bold;
+    height: 110px;
+    line-height: 110px;
+}
+
+.htpp {
+    width: 100%;
+    height: calc(100vh - 110px);
+    line-height: 75px;
+}
+
+.close {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    cursor: pointer;
+}
+
+.close:hover {
+    transform: scale(1.2);
+}

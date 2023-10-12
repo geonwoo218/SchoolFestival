@@ -1,0 +1,197 @@
+* {
+    padding: 0;
+    margin: 0 auto;
+    text-decoration: none;
+    text-align: center;
+}
+
+body {
+    width: 1200px;
+    height: 530px;
+    background-image: url(images/잔디배경.png);
+    position: relative;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.title {
+    width: 600px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #fff;
+    padding: 0.7rem 0.7rem 0.7rem 2rem;
+    border-radius: 10px;
+    background-color: #11998e90;
+    box-shadow: 0 0 30px #11998e80;
+}
+
+.bodywrap {
+    width: 100%;
+    height: 532px;
+    position: relative;
+    display: block;
+}
+
+#gameBoard {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    min-width: 550px;
+    min-height: 500px;
+    max-width: 600px;
+    padding: 10px;
+    background-color: #A9E2C5;
+    position: relative;
+}
+
+#WinEndBg,
+#OverEndBg {
+    width: 622px;
+    height: 531px;
+    background-color: #00000000;
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+#WinMsg,
+#OverMsg {
+    display: none;
+    z-index: 5;
+    width: 610px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.MsgBody {
+    width: 100%;
+    height: 100%;
+    line-height: 280px;
+    background-color: beige;
+    font-weight: bold;
+    text-align: center;
+    font-size: 50px;
+}
+
+.MsgClose {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.gameOverMine {
+    background-image: url(images/지뢰.png);
+}
+
+.content {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 35px;
+    margin-top: 10px;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Phudu', cursive;
+}
+
+.btns {
+    width: 100%;
+    max-width: 600px;
+    height: 150px;
+    margin-top: 17%;
+    padding-top: 20px;
+    position: absolute;
+}
+
+
+#tnt {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 0px;
+    font-size: 16px;
+    width: 150px;
+    height: 30px;
+    margin-bottom: 30px;
+    box-shadow: 5px 5px 30px #33333367;
+}
+
+/* 숫자 올리기 버튼 숨기기 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    /* 내부 여백 제거 */
+}
+
+#startBtn,
+#restart,
+#home {
+    display: block;
+    position: relative;
+    width: 120px;
+    padding: 0px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 50px;
+    color: #000000;
+    border-radius: 5px;
+    transition: all 0.2s;
+    box-shadow: 0px 5px 0px 0px #c9b687;
+    background-color: rgb(237, 237, 207);
+    border: 0px;
+}
+
+#startBtn:hover,
+#restart:hover,
+#home:hover {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 0px 0px rgb(237, 237, 207);
+    cursor: pointer;
+}
+
+footer {
+    width: 650px;
+    height: 100px;
+    bottom: 0;
+}
+
+.btndiv {
+    width: 625px;
+    height: 100px;
+}
+
+#home {
+    float: left;
+}
+
+#restart {
+    float: right;
+}

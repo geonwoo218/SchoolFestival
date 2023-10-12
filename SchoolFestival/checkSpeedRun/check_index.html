@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkSpeedRun</title>
+    <script src="public/code.jquery.com_jquery-3.7.1.min.js"></script>
+    <script src="public/check_script.js"></script>
+    <link href="public/check_style.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="public/images/checkbox.png">
+    <script type="text/javascript">
+        document.oncontextmenu = function () { return false; }
+    </script>
+</head>
+
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false">
+    <!--<header>
+        <span id="address-bar"></span>
+    </header>-->    <!--바꾼 URL 표시 해주는거임-->
+    <h1 id="title">Check Speed Run</h1>
+    <button class="center-button" id="startbutton" onclick="startGame()">START!</button>
+    <button class="center-button" id="HTP">HOW TO PLAY</button>
+    <a href="../main_index.html"><button class="center-button" id="back">홈으로</button></a>
+
+    <div id="timer"></div>
+    <div id="leaderboardT"><h2>랭킹</h2></div>
+    <div id="leaderboard_wrapper">
+        <ul id="leaderboard"></ul>
+    </div>
+
+    <div id="HTPwin">
+        <div id="winBody">
+            <div id="win_title">
+                게임 플레이 방법
+            </div>
+            <div id="win_body">
+                <p>START! 를 누르면 화면에 20개의 체크박스가 표시 된다.<br></p>
+                <p>그 체크박스를 모두 체크하면 게임이 종료 된다.<br></p>
+                <p>이름을 입력하면 스코어보드에 본인의 결과가 기록된다.</p>
+            </div>
+            <div id="close">
+                CLOSE
+            </div>
+        </div>
+    </div>
+  
+</body>
+
+</html>
