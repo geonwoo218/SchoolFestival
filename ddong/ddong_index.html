@@ -8,6 +8,10 @@
     <title>똥피하기</title>
 </head>
 <body>
+    <audio src="public/audio/clickSound.mp3" id="clickSound"></audio>
+    <audio src="public/audio/bgSound.mp3" id="bgSound"></audio>
+    <audio src="public/audio/createPoop.mp3" id="createPoopSound"></audio>
+    <audio src="public/audio/gamePlaySound.mp3" id="gamePlaySound"></audio>
     <div id="GUI">
         <div id="title">똥 피하기 with ImBaerit</div>
         <button id="start" class="guiButton" onclick="startGame()">START</button>
@@ -27,9 +31,9 @@
                 하늘에서 떨어지는 똥을<br>
                 피하면 되는 게임
             </div>
-            <div class="close" onclick="htpclose()">
+            <button class="close" onclick="htpclose()">
                 닫기
-            </div>
+            </button>
         </div>
     </div>
     <div id="gameContainer"><div id="gameTimeDisplay"></div></div>

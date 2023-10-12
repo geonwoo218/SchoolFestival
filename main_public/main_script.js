@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     i.style.opacity = '1';
                 }, 50);
             });
-        } else {
+        } else if(!checkbox.checked){
             infobar.forEach(function (i) {
                 i.style.opacity = '0';
                 setTimeout(function () {
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     checkbox.addEventListener('click', function () {
+        clickSound.currentTime = 0;
         clickSound.play();
     })
 

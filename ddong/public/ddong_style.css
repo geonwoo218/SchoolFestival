@@ -94,6 +94,10 @@ body {
     bottom: 25px;
     right: 25px;
     cursor: pointer;
+    border: none;
+    width: 100px;
+    height: 40px;
+    font-size: 24px;
 }
 
 .close:hover {

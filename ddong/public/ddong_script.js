@@ -20,6 +20,18 @@ let gameStartTime;
 let gameEndTime;
 var leaderboard = [];
 var poopCreateSpeed = 600;
+const clickSound = document.getElementById('clickSound');
+const bgSound = document.getElementById('bgSound');
+const createPoopSound = document.getElementById('createPoopSound');
+const gamePlaySound = document.getElementById('gamePlaySound');
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function () {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    })
+});
 
 window.onload = function () {
     leaderboard = JSON.parse(localStorage.getItem('ddongleaderboard')) || [];
@@ -27,18 +39,19 @@ window.onload = function () {
 }
 
 function startGame() {
+    bgSound.pause();
+    gamePlaySound.play();
     gui.style.display = "none";
     gameContainer.style.display = "block";
 
     pressedLeft = false;
     pressedRight = false;
 
-    poopSpeed = 5;
-    poopCreateSpeed = 600;
-
     clearInterval(keyRepeatTimeout);
     clearInterval(poopCreateInterval);
     clearInterval(poopMoveInterval);
+    poopSpeed = 5;
+    poopCreateSpeed = 600;
 
     if (player) {
         gameContainer.removeChild(player);
@@ -60,11 +73,13 @@ function startGame() {
 
     poopMoveInterval = setInterval(movePoop, 30);
     poopCreateInterval = setInterval(createPoop, poopCreateSpeed);
-    setInterval(function(){
-        poopSpeed += 0.2;
-        poopCreateSpeed -= 50;
+    setInterval(function () {
+        poopSpeed += 0.4;
+        poopCreateSpeed -= 30;
         clearInterval(poopCreateInterval);
+        clearInterval(poopMoveInterval);
         poopCreateInterval = setInterval(createPoop, poopCreateSpeed);
+        poopMoveInterval = setInterval(movePoop, 30);
     }, 5000);
 
     gameTimeDisplay.innerHTML = ("0.00s");
@@ -146,6 +161,8 @@ function createPoop() {
     poop.style.position = 'absolute';
     poop.style.left = poopX + 'px';
     gameContainer.appendChild(poop);
+    createPoopSound.currentTime = 0;
+    createPoopSound.play();
 }
 
 function movePoop() {
@@ -212,7 +229,7 @@ function endGame() {
     var rankingData = { name: playerName, time: elapsedTime.toFixed(2) };
     leaderboard.push(rankingData);
 
-    leaderboard = leaderboard.filter(function(item, index, self) {
+    leaderboard = leaderboard.filter(function (item, index, self) {
         return self.findIndex(t => t.name === item.name) === index;
     });
 
@@ -236,8 +253,6 @@ function endGame() {
     pressedLeft = false;
     pressedRight = false;
 
-    poopSpeed = 5;
-    poopCreateSpeed = 600;
 
     player = null;
     clearInterval(poopCreateInterval);
@@ -247,8 +262,12 @@ function endGame() {
     leaderboardList.innerHTML = "<h1>leaderboard</h1>";
 
     showLeaderboard();
+    gamePlaySound.currentTime = 0;
+    gamePlaySound.pause();
 
     localStorage.setItem('ddongleaderboard', JSON.stringify(leaderboard));
+    poopSpeed = 5;
+    poopCreateSpeed = 600;
     location.reload();
 }
 
@@ -260,4 +279,9 @@ function howtoplay() {
 
 function htpclose() {
     htpbg.style.display = "none";
+}
+
+function adjustPoopSpeed() {
+    poopSpeed += 0.2;
+    poopCreateSpeed -= 50;
 }
