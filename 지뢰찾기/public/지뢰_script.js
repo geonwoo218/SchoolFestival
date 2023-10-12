@@ -10,8 +10,8 @@ let col = 10;
 window.addEventListener("contextmenu", (e) => e.preventDefault());//우클릭메뉴제거
 
 function setting() {
-    const backMusic = document.getElementById('backMusic');
-    backMusic.play();
+    // const backMusic = document.getElementById('backMusic');
+    // backMusic.play();
     const tnt = parseInt(document.getElementById("tnt").value);
     if (tnt == 0 || isNaN(tnt)) {
         alert("올바른 수를 입력해주세요 '^' ");
