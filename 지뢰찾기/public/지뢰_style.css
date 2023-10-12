@@ -186,6 +186,7 @@ footer {
 .btndiv {
     width: 625px;
     height: 100px;
+    padding-top: 10px;
 }
 
 #home {
