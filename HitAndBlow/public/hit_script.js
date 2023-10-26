@@ -128,6 +128,7 @@ function addResultBox(callback) { //결과 상자에 색 추가
     resultColorList.forEach((color, index) => {
         setTimeout(() => {
             resultBoxes[index].style.backgroundColor = color;
+            CorrectSound.currentTime = 0;
             CorrectSound.play();
             if (index === resultColorList.length - 1) {
                 // 마지막 박스가 설정되면 콜백 함수 호출
@@ -135,7 +136,7 @@ function addResultBox(callback) { //결과 상자에 색 추가
                     callback();
                 }
             }
-        }, index * 1200);
+        }, index * 700);
     })
 }
 //hit and blow 처리

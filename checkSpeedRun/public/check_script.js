@@ -52,6 +52,8 @@ function startGame() {
     body.style.height = "75vh";
     leaderboardT.style.display = "none";
 
+    alert("게임을 시작합니다.");
+
     // 게임 시작 시간 기록
     startTime = new Date().getTime();
 

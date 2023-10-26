@@ -205,17 +205,18 @@ ul img {
 
 
 .infobar {
-    width: 300px;
+    width: 320px;
     height: 80px;
-    line-height: 40px;
+    line-height: 35px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     border-radius: 30px;
-    background-color: #5fc0f156;
-    box-shadow: 3px 3px 10px #725ff156;
-    display: none;
+    background-color: #cab8ea5e;
+    box-shadow: 3px 3px 10px #00000056;
     opacity: 0;
     transition: opacity 0.5s;
+    color: white;
 }
 
 #game1_information {
