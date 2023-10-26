@@ -25,9 +25,13 @@ document.addEventListener('DOMContentLoaded', function () {
     games.forEach(game => {
         game.addEventListener('click', function (event) {
             event.preventDefault();
+            clickSound.currentTime = 0;
             clickSound.play();
             const href = this.getAttribute('href');
-            window.location.href = href;
+            setTimeout(function() {
+                window.location.href = href;
+            }, 200);
+            
         })
     })
 })
